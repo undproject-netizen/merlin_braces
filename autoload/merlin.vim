@@ -15,7 +15,7 @@ function! merlin#ToggleBracesAroundBlock()
   endif
 endfunction
 
-function! InsertAtBlockStart()
+function! merlin#InsertAtBlockStart()
   " Запрашиваем у пользователя текст для вставки
   let l:text = input('Введите текст для вставки: ')
 
