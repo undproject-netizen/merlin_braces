@@ -15,3 +15,18 @@ function! merlin#ToggleBracesAroundBlock()
   endif
 endfunction
 
+function! InsertAtBlockStart()
+  " Запрашиваем у пользователя текст для вставки
+  let l:text = input('Введите текст для вставки: ')
+
+  let start_line = line("'<")
+  let end_line = line("'>")
+  let start_col = col("'<")
+
+  for lnum in range(start_line, end_line)
+    let line = getline(lnum)
+    let new_line = strpart(line, 0, start_col - 1) . l:text . strpart(line, start_col - 1)
+    call setline(lnum, new_line)
+  endfor
+endfunction
+
